@@ -20,6 +20,12 @@ by installing (and regularly running) a script as a windows scheduled task.
 Script execution is only triggered once, after installation, and then
 repeatedly after login. The core concept is to minimize any nuisance.
 
+The "LiveHardcore" configuration can be selected in the install script.
+As its behavior is considered rather agressive, it is not enabled default.
+This specific configuration adds a trigger that actively supervises the
+state of the Analytics services and responds to a service being re-enabled,
+by immediately switching it back off.
+
 The toolset is created in PowerShell, including a script to aid installation.
 All scripts are lightweight and easy to read, as to simplify review and/or
 adaption before installation.
@@ -31,6 +37,7 @@ To install the toolset (i.e. scheduled task), simply follow these steps:
 - "cd" to the target directory you chose to copy (or unpack) the files to
 - Depending on your systems execution policy, you may need to allow scripts  
   (e.g. 'Set-Executionpolicy unresticted')
+- optionally change the installation script to use e.g. "LiveHardcore" config
 - run the installation script '.\Install-AntiHPSpyware-Task.ps1'  
 - files are automatically installed under '%CommonProgramFiles%\AntiHP'  
   (a log file created in the folder indicates that the toolset is working)
@@ -51,4 +58,4 @@ in question. But GPOs may not be an option for everyone either.
 
 ## NOTES
 Author   : Kai P.  
-Version  : 0.1 (2024-09-25) - Initial Release
+Version  : 0.2 (2024-09-27) - "LiveHardcore" configuration added as option
