@@ -20,11 +20,13 @@ by installing (and regularly running) a script as a windows scheduled task.
 Script execution is only triggered once, after installation, and then
 repeatedly after login. The core concept is to minimize any nuisance.
 
-The "LiveHardcore" configuration can be selected in the install script.
-As its behavior is considered rather agressive, it is not enabled default.
-This specific configuration adds a trigger that actively supervises the
-state of the Analytics services and responds to a service being re-enabled,
-by immediately switching it back off.
+As of v0.2, a "LiveHardcore" configuration was added that can be used during
+installation by uncommenting it in the install script.
+Its behavior is considered more agressive (at the same time less tested),
+so it is not yet enabled by default.
+This specific configuration adds a "live" trigger that gets pulled when the
+state of the Analytics services changes, so it immediately switches the HP
+services back off.
 
 The toolset is created in PowerShell, including a script to aid installation.
 All scripts are lightweight and easy to read, as to simplify review and/or
