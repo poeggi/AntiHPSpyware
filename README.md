@@ -50,7 +50,8 @@ To install the toolset (i.e. scheduled task), simply follow these steps:
 ## SIDENOTES
 Besides the Analytics "services", this toolset also disables the totally
 useless network services. (Windows10+ is already handling things itself).  
-Also disabled is a service called 'hpsvcsscan'
+Also disabled is a service called 'hpsvcsscan', which seems to manage
+(re-)installation of drivers and services. 
 On the other hand, any services that is actually coupled with real features,
 e.g. updates and testing, is left untouched by this toolset.
 
