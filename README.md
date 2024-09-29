@@ -3,7 +3,6 @@
 Anti HP Analytics / Spyware / Bloatware Toolset
 
 ## DESCRIPTION
-
 Ever tried to get rid of the HP bloat- and spyware, which HP calles "analytics"?
 
 They always seems to resurface after some time.
@@ -13,20 +12,22 @@ information and/or interfering with the built-in windows functions) will
 (re-)appear at one point.
 
 Also, at the time of this writing, it is not trivial to get rid of the services
-in the first place, as they are not regular apps that can simply be uninstalled.
+in the first place, as they are not regular apps that can simply be uninstalled
+and connected to the fake hardware devices.
 
-So this toolset disables the HP services and makes sure they stay disabled,
-by installing (and regularly running) a script as a windows scheduled task.  
-Script execution is only triggered once, after installation, and then
-repeatedly after login. The core concept is to minimize any nuisance.
+So instead of trying to deinstall, this toolset disables the HP services and
+makes sure they stay disabled, by setting up (and regularly running) a script
+as a windows scheduled task.  
+Script execution is triggered once, after installation, and then only after login.
+The core idea is to minimize any nuisance.
 
 As of v0.2, a configuration named 'LiveHardcore' configuration was added that can
 be used for installation by uncommenting it in the install script.
 It's behavior is considered more agressive (at the same time less tested),
 so it is not yet enabled by default.
 This specific configuration adds a "live" trigger that gets pulled when the
-state of the Analytics services changes, so it immediately switches the HP
-services back off.
+state of the Analytics services changes (e.g. by new updates). It then
+runce once to immediately switches the HP services back off.
 
 The toolset is created in PowerShell, including a script to aid installation.
 All scripts are lightweight and easy to read, as to simplify review and/or
@@ -55,7 +56,7 @@ Also disabled is a service called 'hpsvcsscan', which seems to manage
 On the other hand, any services that is actually coupled with real features,
 e.g. updates and testing, is left untouched by this toolset.
 
-Alternative solutions or supplemental measures (to using this toolset):
+Alternative solutions or supplemental measures (to using this toolset):  
 The issue of unsolicited re-surfacing of services may be (partially) resolved
 by disabling the respective device in the HP BIOS.  
 (BIOS Setting to disable: Advances->System Options->[ ]HP Application Driver)  
