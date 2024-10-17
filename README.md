@@ -8,12 +8,12 @@ Ever tried to get rid of the HP bloat- and spyware, which HP calles "analytics"?
 
 They always seems to resurface after some time.
 This is due to the fact that HP rolls out "services" via the windows update.
-So even on a virgin windows, the infamous HP services (collecting your
-information and/or interfering with the built-in windows functions) will
-(re-)appear at one point.
+So even on a virgin Windows, the infamous HP services (collecting your
+information and/or interfering with Windows functions) will (re-)appear
+at one point.
 
-Also, at the time of this writing, it is not trivial to get rid of the services
-in the first place, as they are not regular apps that can simply be uninstalled.
+Also it is not trivial to get rid of the services in the first place, as they
+are not regular apps/programs that can simply be uninstalled.
 
 So this tool disables the HP services and makes sure they stay disabled,
 by installing (and regularly running) a script as a windows scheduled task.  
