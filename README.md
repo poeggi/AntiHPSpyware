@@ -44,16 +44,16 @@ To install the tool (i.e. scheduled task), simply follow these steps:
   or to add you own services to be disabled
 - run the installation script '.\Install-AntiHPSpyware-Task.ps1'  
 - files are automatically installed under '%CommonProgramFiles%\AntiHP'  
-  (a log file created in the folder indicates that the toolset is working)
+  (a log file created in the folder indicates that the tool is working)
 - if you adapted your execution policy, you probably want to revert it  
   (e.g. 'Set-Executionpolicy Default')
 - optionally delete the downloaded, copied and/or unpacked files
 
 ## SIDENOTES
-Besides the Analytics "services", this toolset also disables the totally
+Besides the Analytics "services", this tool also disables the totally
 useless network services. (Windows10+ is already handling things itself).  
 In contrast, any services that are actually coupled with real features,
-e.g. updates and testing, are left untouched by this toolset.
+e.g. updates and testing, are left untouched by this tool.
 
 Alternative
 For some, the issue of unsolicited re-surfacing may be resolved by disabling the
@@ -63,4 +63,4 @@ in question. But GPOs may not be an option for everyone either.
 
 ## NOTES
 Author   : Kai P.  
-Version  : 0.3 (2024-10-17) - "LiveHardcore" config is default
+Version  : 0.3 (2024-10-17) - "LiveHardcore" as default, excl. HP WWAN service
