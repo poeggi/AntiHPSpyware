@@ -5,7 +5,7 @@
 if ([Environment]::OSVersion.Version.Major -lt 10) { exit }
 
 # Definition of core analytics service (by name) to disable. 
-$AnalyticsServicesToDisable = ('hpsvcsscan', 'HpTouchpointAnalyticsService', 'HpAudioAnalytics', 'HPNetworkCap', 'LanWlanWwanSwitchingServiceUWP')
+$AnalyticsServicesToDisable = ('hpsvcsscan', 'HpTouchpointAnalyticsService', 'HpAudioAnalytics')
 
 # further services to disable. Add your own here. Wildcards can be used if needed.
 $FurtherServicesToDisable = ('HPNetworkCap')
