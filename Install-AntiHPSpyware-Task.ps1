@@ -1,7 +1,11 @@
 #Requires -RunAsAdministrator
 
-$TaskToUse=".\sources\DisableHPAnalytics-Task.xml"
-#$TaskToUse=".\sources\DisableHPAnalytics-Task-LiveHardcore.xml" # alternative task definition, featuring a trigger that is triggered immediately as soon as the service is re-enabled
+# Current default task definition, featuring a trigger after login plus
+# one that is pulled immediately, as soon as a service is re-enabled
+$TaskToUse=".\sources\DisableHPAnalytics-Task-LiveHardcore.xml"
+
+# More conservative Task definition, where task is only run after login
+#$TaskToUse=".\sources\DisableHPAnalytics-Task.xml"
 
 # meant to run only on Windows 10 or later
 if ([Environment]::OSVersion.Version.Major -lt 10) {
