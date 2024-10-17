@@ -4,8 +4,18 @@
 # Meant to be run on Windows 10 and later
 if ([Environment]::OSVersion.Version.Major -lt 10) { exit }
 
-# definition of service (by name) to disable. Wildcards can be used if needed.
-$ServicesToDisable = ('hpsvcsscan', 'HpTouchpointAnalyticsService', 'HpAudioAnalytics', 'HPNetworkCap', 'LanWlanWwanSwitchingServiceUWP')
+# Definition of core analytics service (by name) to disable. 
+$AnalyticsServicesToDisable = ('hpsvcsscan', 'HpTouchpointAnalyticsService', 'HpAudioAnalytics', 'HPNetworkCap', 'LanWlanWwanSwitchingServiceUWP')
+
+# further services to disable. Add your own here. Wildcards can be used if needed.
+$FurtherServicesToDisable = ('HPNetworkCap')
+# NOTE: Removed 'LanWlanWwanSwitchingServiceUWP' from the Services to disable, as this service
+#       seems to implement some quirk management of the Qualcomm Snapdragon X55 5G Cellular Modem
+#       Without this service (on Windows11) the X55 WWAN Device did reproducibly crash and not recover
+#       (Code 43) in some situations. This Service seems to somehow improve stability or at least
+#       bring the device back up in such cases.
+
+$ServicesToDisable = $AnalyticsServicesToDisable + $FurtherServicesToDisable
 
 $ServiceList = [array[]]::new(0)
 foreach ($ServiceName in $ServicesToDisable) {
