@@ -15,42 +15,28 @@ information and/or interfering with the built-in windows functions) will
 Also, at the time of this writing, it is not trivial to get rid of the services
 in the first place, as they are not regular apps that can simply be uninstalled.
 
-So this toolset disables the HP services and makes sure they stay disabled,
+So this tool disables the HP services and makes sure they stay disabled,
 by installing (and regularly running) a script as a windows scheduled task.  
-<<<<<<< HEAD
-Script execution is triggered once, after installation, and then repeatedly  
-after login. Additionally, a trigger is set up that actively supervises the  
-state of the Analytics services and responds to a service being re-enabled,  
+Script execution is triggered once, after installation, and then repeatedly
+after login. Additionally, a trigger is set up that actively supervises the
+state of the Analytics services and responds to a service being re-enabled,
 by immediately switching it back off.
 
 The main idea of the task is to minimize any nuisance.
 
-The toolset is created in PowerShell, including a script to aid installation.
-=======
-The fundamental idea of this tool is to minimize any nuisance.
-
 The script's execution is triggered
 - once, directly after installation via the install script
 - regularly after login of any user
-- every time a relevant HP service is changing its state(**)
-
-(**) As of v0.2, a "LiveHardcore" configuration was added that can be enabled during
-installation, by uncommenting it in the install script.
-"LiveHardcorr" behavior is considered more agressive (at the same time less tested),
-so it is not yet enabled by default.
-This specific configuration adds a "live" trigger that gets pulled when the
-state of a relevant HP service changes, so it immediately switches the HP
-services back off.
+- every time a core HP analytics service is changing its state
 
 The whole tool is created in PowerShell, including the install script.
->>>>>>> a42cc4750dc5a28bcbbab32c8ece2c26ab16a3f3
-All scripts are lightweight and easy to read, as to simplify review and/or
-adaption before installation.
+All scripts are lightweight and easy to read, as to simplify review
+and/or adaption before installation.
 
-To install the toolset (i.e. scheduled task), simply follow these steps:  
+To install the tool (i.e. scheduled task), simply follow these steps:  
 - Download the complete set of files (including the "source" directory)
 - Copy (or unpack) to a directory of your choice on your system
-- Open a PowerShell commandline, run as Administrator!
+- Open a PowerShell command-line, run as Administrator!
 - "cd" to the target directory you chose to copy (or unpack) the files to
 - Depending on your systems execution policy, you may need to allow scripts  
   (e.g. 'Set-Executionpolicy unresticted')
