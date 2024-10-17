@@ -1,6 +1,6 @@
 # Anti-HP-Spyware
 ## SYNOPSIS
-Anti HP Analytics / Spyware / Bloatware Toolset
+Anti HP Analytics / Spyware / Bloatware Tool
 
 ## DESCRIPTION
 
@@ -17,6 +17,7 @@ in the first place, as they are not regular apps that can simply be uninstalled.
 
 So this toolset disables the HP services and makes sure they stay disabled,
 by installing (and regularly running) a script as a windows scheduled task.  
+<<<<<<< HEAD
 Script execution is triggered once, after installation, and then repeatedly  
 after login. Additionally, a trigger is set up that actively supervises the  
 state of the Analytics services and responds to a service being re-enabled,  
@@ -25,6 +26,24 @@ by immediately switching it back off.
 The main idea of the task is to minimize any nuisance.
 
 The toolset is created in PowerShell, including a script to aid installation.
+=======
+The fundamental idea of this tool is to minimize any nuisance.
+
+The script's execution is triggered
+- once, directly after installation via the install script
+- regularly after login of any user
+- every time a relevant HP service is changing its state(**)
+
+(**) As of v0.2, a "LiveHardcore" configuration was added that can be enabled during
+installation, by uncommenting it in the install script.
+"LiveHardcorr" behavior is considered more agressive (at the same time less tested),
+so it is not yet enabled by default.
+This specific configuration adds a "live" trigger that gets pulled when the
+state of a relevant HP service changes, so it immediately switches the HP
+services back off.
+
+The whole tool is created in PowerShell, including the install script.
+>>>>>>> a42cc4750dc5a28bcbbab32c8ece2c26ab16a3f3
 All scripts are lightweight and easy to read, as to simplify review and/or
 adaption before installation.
 
@@ -50,6 +69,7 @@ useless network services. (Windows10+ is already handling things itself).
 In contrast, any services that are actually coupled with real features,
 e.g. updates and testing, are left untouched by this toolset.
 
+Alternative
 For some, the issue of unsolicited re-surfacing may be resolved by disabling the
 respective device in the BIOS. But the BIOS option is not available everywhere.
 Alternatively, one could use a GPO based mechanism to disable the services
