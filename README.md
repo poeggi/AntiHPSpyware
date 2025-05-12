@@ -58,8 +58,7 @@ e.g. updates and testing, are left untouched by this tool.
 
 ### Alternative Approaches  
 For some users, the issue of unsolicited re-surfacing may be resolvable by
-disabling the HP device in the BIOS:  
-(BIOS Config: Advances->System Options->[ ]HP Application Driver  
+disabling the HP device in the BIOS (Advanced->System Options->[ ]HP Application Driver)  
 
 But this BIOS option is not available on every HP system.  
 
