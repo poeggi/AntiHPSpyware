@@ -1,5 +1,6 @@
-#############################################################################
+##############################################################################
 # PowerShell script to stop and disable unwanted HP tasks and service(s)
+# Version 0.5 (2026-03-29)
 ##############################################################################
 
 # Enable standard PowerShell parameters
@@ -49,7 +50,7 @@ foreach ($TaskName in $TasksToDisable) {
 
 $LogFile = "$PSScriptRoot\DisableHPAnalytics.log"
 
-$Date=(date)
+$Date=(Get-Date)
 
 if (!(Test-Path $LogFile)) {
 	Write-Output "${Date}: Initial Execution" | Out-File $LogFile

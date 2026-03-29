@@ -21,10 +21,10 @@ if (!(Test-Path $TargetPath)) {
 	Remove-Item "$TargetPath\*.log" -ErrorAction SilentlyContinue
 }
 
-# copy script that the recurring taks will execute, do so by creating own file to allow windows to execute it
+# copy script that the recurring task will execute, do so by creating own file to allow windows to execute it
 (Get-Content .\sources\DisableHPAnalytics.ps1) > ${TargetPath}\DisableHPAnalytics.ps1
 
-# read the recurring task file XML defintion
+# read the recurring task file XML definition
 $TaskURI = ([xml](Get-Content -Path $TaskToUse)).Task.RegistrationInfo.URI
 
 # set up the task
