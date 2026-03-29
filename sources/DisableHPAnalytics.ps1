@@ -33,21 +33,21 @@ $ServicesToDisable = $ServicesToDisable + $FurtherServicesToDisable
 $TasksToDisable = ($TasksToDisable) + ($FurtherTasksToDisable)
 
 # create clean lists that contain only existing services and tasks
-$ServiceList = [array[]]::new(0)
+$ServiceList = @()
 foreach ($ServiceName in $ServicesToDisable) {
 	Write-Debug "Checking if there is a service named $ServiceName"
 	$Service = (Get-Service -Name $ServiceName) 2> $null
 	if ($Service) { $ServiceList += $Service }
 }
 
-$TaskList = [array[]]::new(0)
+$TaskList = @()
 foreach ($TaskName in $TasksToDisable) {
 	Write-Debug "Checking if there is a Task named $TaskName"
 	$Task = (Get-ScheduledTask -TaskName $TaskName) 2> $null
 	if ($Task) { $TaskList += $Task }
 }
 
-$LogFile = ".\DisableHPAnalytics.log"
+$LogFile = "$PSScriptRoot\DisableHPAnalytics.log"
 
 $Date=(date)
 
@@ -61,7 +61,7 @@ foreach ($Service in $ServiceList) {
 	$InitialStatus = $Service.Status
 	$InitialStartType = $Service.StartType
 
-	$Service | Stop-Service
+	$Service | Stop-Service -ErrorAction SilentlyContinue
 	Start-Sleep -Milliseconds 100
 	$Service | Set-Service -StartupType 'Disabled'
 	$Service | Stop-Service -Force

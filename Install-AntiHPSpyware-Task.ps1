@@ -18,7 +18,7 @@ $TargetPath = "$env:CommonProgramFiles\AntiHP"
 if (!(Test-Path $TargetPath)) {
 	mkdir $TargetPath > $null
 } else {
-	rm $TargetPath\*.log
+	Remove-Item "$TargetPath\*.log" -ErrorAction SilentlyContinue
 }
 
 # copy script that the recurring taks will execute, do so by creating own file to allow windows to execute it
