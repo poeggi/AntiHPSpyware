@@ -52,7 +52,7 @@ To install the tool (i.e. scheduled task), simply follow these steps:
 ## SIDENOTES
 Besides the Analytics "services", this tool also disables the totally
 useless network services. (Windows10+ is already handling things itself).
-As of version 0.4, it furthermore disables some useless HP scheduled services.
+It furthermore disables some useless HP scheduled services.
 On the other hand, HP services that are actually coupled with real features,
 e.g. updates and testing, are left untouched by this tool.
 
@@ -69,8 +69,4 @@ Hence this tool.
 
 ## NOTES
 Author   : Kai P.
-Version  : 0.4 (2025-05-12) - Add feature to disable HP scheduled tasks.
-Version  : 0.5 (2026-03-29) - Reliability fixes: correct log path, suppress noisy
-           Stop-Service errors, fix list initialization, silent log cleanup on
-           reinstall, add -NoProfile -NonInteractive to scheduled task invocation,
-           extend reactive event trigger to also cover HPNetworkCap service.
+Version  : 0.5 (2026-03-29)
